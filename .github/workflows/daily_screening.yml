@@ -1,30 +1,8 @@
-name: Daily Buffett Screening
-
-on:
-  schedule:
-    - cron: '0 22 * * *' # 日本時間の朝7時
-  workflow_dispatch: # ←これがあるからボタンが出る！
+name: Test Run
+on: workflow_dispatch
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: コードのチェックアウト
-        uses: actions/checkout@v4
-
-      - name: Pythonのセットアップ
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: ライブラリのインストール
-        run: |
-          pip install -r requirements.txt
-
-      - name: スクリーニング実行
-        env:
-          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
-          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-        run: python main.py
+      - run: echo "OK"

@@ -2,8 +2,8 @@ name: Daily Buffett Screening
 
 on:
   schedule:
-    - cron: '0 22 * * *' # 日本時間 朝7時
-  workflow_dispatch:
+    - cron: '0 22 * * *' # 日本時間の朝7時
+  workflow_dispatch: # ←これがあるからボタンが出る！
 
 jobs:
   build:
@@ -24,7 +24,6 @@ jobs:
 
       - name: スクリーニング実行
         env:
-          # ここで設定したSecretをPythonに渡します
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}

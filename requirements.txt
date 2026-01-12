@@ -1,0 +1,7 @@
+yfinance
+pandas
+openpyxl
+tqdm
+tabulate
+numpy
+lxml

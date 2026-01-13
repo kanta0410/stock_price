@@ -3,5 +3,7 @@ pandas
 openpyxl
 tqdm
 tabulate
-numpy
 lxml
+xlrd
+matplotlib
+japanize-matplotlib

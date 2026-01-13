@@ -1,0 +1,25 @@
+name: Manual Test Run
+
+on:
+  workflow_dispatch: # これを書くと「Run workflow」ボタンが出現する
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: コードを取得
+        uses: actions/checkout@v3
+
+      - name: Pythonセットアップ
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: ライブラリインストール
+        run: pip install -r requirements.txt
+
+      - name: テストスクリプト実行
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+        run: python test_email.py
